@@ -4,14 +4,14 @@ import styled from 'styled-components';
 import { colors, fonts } from '../../template';
 
 const Title = styled.h1`
-  font-size: 1.5em;
+  font-size: 32px;
   font-family: ${fonts.primary};
   text-align: center;
   color: ${colors.textPrimary};
 `;
 
 const Wrapper = styled.header`
-  padding: 4em;
+  padding: 25px;
   background: ${colors.primary};
 `;
 
