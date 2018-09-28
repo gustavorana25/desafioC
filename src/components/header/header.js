@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../template/colors';
+import { colors, fonts } from '../../template';
 
 const Title = styled.h1`
   font-size: 1.5em;
+  font-family: ${fonts.primary};
   text-align: center;
   color: ${colors.textPrimary};
 `;
