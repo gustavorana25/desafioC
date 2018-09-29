@@ -1,16 +1,60 @@
 import { createActions, createReducer } from "reduxsauce";
-import { search, discover } from '../../api/tmdb';
+import { searchMoviesInAPI, discoverMoviesInAPI } from '../../api/tmdb';
 
 export const { Types, Creators } = createActions({
-  addTodo: ["text"]
+    movieIsFetching: ['movieIsFetching'],
+    movieSuccess: ['movies'],
+    movieFailure: ['error']
 });
 
-const INITIAL_STATE = [];
-const add = (state = INITIAL_STATE, action) => [
+const INITIAL_STATE = {};
+const movieIsFetching = (state = INITIAL_STATE, action) => ({
   ...state,
-  { id: Math.random(), text: action.text, complete: false }
-];
+  movieIsFetching: action.movieIsFetching
+});
+
+const movieSuccess = (state = INITIAL_STATE, action) => ({  
+    ...state,
+  movies: action.movies
+});
+
+const movieFailure = (state = INITIAL_STATE, action) => ({
+  ...state,
+  error: action.error
+});
 
 export default createReducer(INITIAL_STATE, {
-  [Types.ADD_TODO]: add
+    [Types.MOVIE_IS_FETCHING]: movieIsFetching,
+    [Types.MOVIE_SUCCESS]: movieSuccess,
+    [Types.MOVIE_FAILURE]: movieFailure,
 });
+
+
+export const searchRequest = (inputSearch) => (dispatch, getState) => {
+    if (getState().movieIsFetching)
+        Promise.resolve();
+
+    dispatch(Creators.movieIsFetching(true));
+
+    searchMoviesInAPI(inputSearch)
+        .then(result => {
+            dispatch(Creators.movieSuccess(result));
+            dispatch(Creators.movieIsFetching(false));
+        }, error => {
+            dispatch(Creators.movieFailure(error.message || 'Something went wrong.'));
+        });
+}
+
+export const discoverRequest = () => (dispatch, getState) => {
+    if (getState().movieIsFetching)
+        Promise.resolve();
+
+    dispatch(Creators.movieIsFetching(true));
+    discoverMoviesInAPI()
+        .then(result => {
+            dispatch(Creators.movieSuccess(result));
+            dispatch(Creators.movieIsFetching(false));
+        }, error => {
+            dispatch(Creators.movieFailure(error.message || 'Something went wrong.'));
+        });
+}

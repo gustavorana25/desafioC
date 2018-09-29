@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors, fonts } from '../../template';
+import { colors, fonts } from '../../styles';
 
 const Title = styled.h1`
   font-size: 32px;
   font-family: ${fonts.primary};
   text-align: center;
-  color: ${colors.textPrimary};
+  color: ${colors.lightPrimary};
 `;
 
 const Wrapper = styled.header`
