@@ -5,7 +5,7 @@ export const api = {
 }
 
 export const searchMoviesInAPI = (search_input) =>{
-    const url = api.request_url + '3/search/movie?language=pt-br&include_video=true&api_key=' + api.key + '&query=' + search_input;
+    const url = api.request_url + '3/search/movie?language=pt-br&sort_by=popularity&include_video=true&api_key=' + api.key + '&query=' + search_input;
     return fetch(url).then(result => result.json());
 }
 

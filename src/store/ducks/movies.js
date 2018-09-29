@@ -37,7 +37,6 @@ export default createReducer(INITIAL_STATE, {
     [Types.MOVIE_CHANGE_PAGE]: movieChangePage,
 });
 
-
 export const searchRequest = (inputSearch) => (dispatch, getState) => {
     if (getState().movies.movieIsFetching)
         return false;
