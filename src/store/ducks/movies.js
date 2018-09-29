@@ -1,4 +1,5 @@
 import { createActions, createReducer } from "reduxsauce";
+import { search, discover } from '../../api/tmdb';
 
 export const { Types, Creators } = createActions({
   addTodo: ["text"]
