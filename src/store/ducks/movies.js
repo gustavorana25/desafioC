@@ -4,7 +4,8 @@ import { searchMoviesInAPI, discoverMoviesInAPI } from '../../api/tmdb';
 export const { Types, Creators } = createActions({
     movieIsFetching: ['movieIsFetching'],
     movieSuccess: ['movies'],
-    movieFailure: ['error']
+    movieFailure: ['error'],
+    movieChangePage: ['page']
 });
 
 const INITIAL_STATE = {};
@@ -15,7 +16,8 @@ const movieIsFetching = (state = INITIAL_STATE, action) => ({
 
 const movieSuccess = (state = INITIAL_STATE, action) => ({  
     ...state,
-  movies: action.movies
+  movies: action.movies,
+  page: 1,
 });
 
 const movieFailure = (state = INITIAL_STATE, action) => ({
@@ -23,16 +25,22 @@ const movieFailure = (state = INITIAL_STATE, action) => ({
   error: action.error
 });
 
+const movieChangePage= (state = INITIAL_STATE, action) => ({
+  ...state,
+  page: action.page
+});
+
 export default createReducer(INITIAL_STATE, {
     [Types.MOVIE_IS_FETCHING]: movieIsFetching,
     [Types.MOVIE_SUCCESS]: movieSuccess,
     [Types.MOVIE_FAILURE]: movieFailure,
+    [Types.MOVIE_CHANGE_PAGE]: movieChangePage,
 });
 
 
 export const searchRequest = (inputSearch) => (dispatch, getState) => {
-    if (getState().movieIsFetching)
-        Promise.resolve();
+    if (getState().movies.movieIsFetching)
+        return false;
 
     dispatch(Creators.movieIsFetching(true));
 
@@ -46,8 +54,8 @@ export const searchRequest = (inputSearch) => (dispatch, getState) => {
 }
 
 export const discoverRequest = () => (dispatch, getState) => {
-    if (getState().movieIsFetching)
-        Promise.resolve();
+    if (getState().movies.movieIsFetching)
+        return false;
 
     dispatch(Creators.movieIsFetching(true));
     discoverMoviesInAPI()

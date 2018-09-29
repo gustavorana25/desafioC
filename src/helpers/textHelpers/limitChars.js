@@ -1,0 +1,1 @@
+export const limitChars = (str, limit) => str.length > limit ? str.substr(0, limit) + '...' : str;

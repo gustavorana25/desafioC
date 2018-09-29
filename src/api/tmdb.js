@@ -15,6 +15,6 @@ export const discoverMoviesInAPI = () =>{
 }
 
 export const genreMoviesInAPI = () =>{
-    const url = api.request_url + '3/genre/movie?language=pt-br&api_key=' + api.key;
+    const url = api.request_url + '3/genre/movie/list?language=pt-br&api_key=' + api.key;
     return fetch(url).then(result => result.json());
 }
