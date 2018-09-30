@@ -13,7 +13,7 @@ import TagsList from '../../../components/tagsList/tagsList';
 export const MovieCard = (props) => {
     const { title, vote_average, overview, poster_path, release_date, genre_ids} = props.data;
     return(
-        <Card>
+        <Card to={props.to}>
             <Poster src={"https://image.tmdb.org/t/p/w500/" + poster_path} />
             <MoviewInfo>
                 <HeaderInfo>
