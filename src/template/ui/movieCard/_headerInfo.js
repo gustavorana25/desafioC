@@ -21,6 +21,10 @@ export const Popularity = styled.div`
     color: ${colors.lightPrimary};
     font-size:25px;
     font-family: ${fonts.primary};
+
+    @media(max-width:600px){
+        top:4px;
+    }
 `;
 
 export const Title = styled.h1`
@@ -29,6 +33,11 @@ export const Title = styled.h1`
   color: ${colors.lightPrimary};
   background: ${colors.primary};
   padding:26px 0 10px 100px;
+
+  @media(max-width:600px){
+      font-size:24px;
+      padding:10px 0 10px 100px;
+  }
 `;
 
 export const Date = styled.h2`

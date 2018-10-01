@@ -27,4 +27,9 @@ export const Card = styled(Link)`
     &:nth-of-type(5){
         animation-delay:0.4s;
     }
+
+    @media (max-width: 600px) {
+       flex-direction:column;
+       padding-bottom:16px;
+    }
 `;

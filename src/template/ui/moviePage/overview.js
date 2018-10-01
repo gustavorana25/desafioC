@@ -2,14 +2,9 @@ import styled from 'styled-components';
 import { colors, fonts } from '../../styles';
 
 export const Overview = styled.p`
-    padding:30px 24px 16px;
-    font-size:14px;
-    line-height:1.5;
     font-family: ${fonts.secondary};
+    font-size:14px;
     color: ${colors.secondary};
-    margin-top:8px;
-
-    @media (max-width: 600px) {
-      padding:12px 24px 16px;
-    }
+    line-height:1.3;
+    margin-bottom:40px;
 `;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors, fonts } from '../../styles';
+import { fonts } from '../../styles';
 
 import paginationButtonTypes from './_types';
 
@@ -8,6 +8,10 @@ export const Pagination = styled.div`
     align-items:center;
     justify-content:center;
     margin-top:70px;
+
+    @media (max-width: 600px) {
+         margin-top:40px;
+    }
 `;
 
 export const Page = styled.span`

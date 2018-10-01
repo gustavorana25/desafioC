@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { genresRequest } from "../../store/ducks/genre";
 
-
 import { ListTag, Tag } from '../../template/ui/movieTag/movieTag';
 
 class TagsList extends Component {
@@ -12,10 +11,10 @@ class TagsList extends Component {
     }
 
     render() {
-        const { ids } = this.props;
+        const { ids, noPadding } = this.props;
         const { genres } = this.props.genres;
         return (
-            <ListTag>
+            <ListTag noPadding={noPadding}>
                 {ids.map(id=>(
                     <Tag key={id}>{genres && genres[id]}</Tag>
                 ))}

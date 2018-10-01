@@ -19,7 +19,6 @@ class HomePage extends Component{
 
     render() {
         const { movies, page } = this.props.movies;
-        console.log(this.props);
         
         return (
             <MaxContainer>

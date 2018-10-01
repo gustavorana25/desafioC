@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -15,8 +14,9 @@ class Search extends Component {
   handleChanges(event){
     const searchInput = event.target.value;
     clearTimeout(this.timer);
+    
     this.timer = setTimeout(() => {
-      if (searchInput != "")
+      if (searchInput !== "")
         this.props.searchRequest(searchInput);
       else
         this.props.discoverRequest();
@@ -24,7 +24,6 @@ class Search extends Component {
   }
 
   render() {
-    const { movies } = this.props.movies;
     return (
       <Input
         placeholder="Busque um filme por nome, ano ou gênero"
@@ -35,7 +34,7 @@ class Search extends Component {
   }
 }
 
-const mapStateToProps = state => ({ movies: state.movies });
+const mapStateToProps = state => ({});
 const mapDispatchToProps = dispatch => bindActionCreators({ searchRequest, discoverRequest}, dispatch);
 export default connect(
   mapStateToProps,

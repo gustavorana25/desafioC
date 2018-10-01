@@ -1,13 +1,12 @@
+
 import styled from 'styled-components';
 
 export const Poster = styled.img`
-    width:200px;
+    width:340px;
     height:auto;
-    
+    margin-left: auto;
+
     @media (max-width: 600px) {
-       width: 100%;
-        height: 190px;
-        object-fit: cover;
-        object-position: center;
+        margin:0 auto;
     }
 `;

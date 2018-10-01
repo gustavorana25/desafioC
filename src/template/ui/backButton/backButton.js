@@ -12,4 +12,8 @@ export const BackButton = styled(Link) `
     font-size: 17px;
     text-decoration: none;
     padding: 20px;
+
+    @media (max-width:600px){
+        padding: 6px 20px;
+    }
 `;

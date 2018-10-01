@@ -12,7 +12,7 @@ export const Tag = styled.span`
 `;
 
 export const ListTag = styled.span`
-   display:flex;
-   padding: 0 24px;
-   flex-wrap:wrap;
+    display:flex;
+    flex-wrap:wrap;
+    padding: ${props => props.noPadding ? "0" : "0 24px"};
 `;

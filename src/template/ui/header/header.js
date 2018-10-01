@@ -8,11 +8,18 @@ const Title = styled.h1`
   font-family: ${fonts.primary};
   text-align: center;
   color: ${colors.lightPrimary};
+
+  @media (max-width: 600px) {
+     font-size:28px;
+  }
 `;
 
 const Wrapper = styled.header`
   padding: 25px;
   background: ${colors.primary};
+  @media (max-width: 600px) {
+     padding:10px;
+  }
 `;
 
 const Header = () => (

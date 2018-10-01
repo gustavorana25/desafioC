@@ -6,4 +6,8 @@ export const MaxContainer = styled.section`
     padding: 50px 20px;
     margin:0 auto;
     box-sizing:border-box;
+
+    @media (max-width: 600px) {
+        padding: 30px 20px;
+    }
 `;
